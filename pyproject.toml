@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "flake8-numpy-random"
+version = "0.1.0"
+description = "Plugin for Flake8 that forbids usage of numpy.random()"
+license = "MIT"
+authors = ["Andrey Evtikheev <eft000@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/aevtikheev/flake8-numpy-random"
+homepage = "https://github.com/aevtikheev/flake8-numpy-random"
+keywords = [
+  "flake8",
+  "flake8-plugin",
+  "linting",
+  "linter",
+  "code quality",
+]
+classifiers = [
+  "Environment :: Console",
+  "Framework :: Flake8",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Software Development :: Quality Assurance",
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+flake8 = "^3.9.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.3"
+tox = "^3.23.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins."flake8.extension"]
+NPR= "flake8_numpy_random:Plugin"
