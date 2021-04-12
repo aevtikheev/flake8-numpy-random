@@ -41,9 +41,8 @@ class Visitor(ast.NodeVisitor):
         if hasattr(node.func, 'value') and hasattr(node.func.value, 'id'):
             if node.func.value.id in self._numpy_imports and node.func.attr == 'random':
                 self.np_random_calls.append((node.lineno, node.col_offset))
-        else:
-            if hasattr(node.func, 'id') and node.func.id in self._random_imports:
-                self.np_random_calls.append((node.lineno, node.col_offset))
+        elif hasattr(node.func, 'id') and node.func.id in self._random_imports:
+            self.np_random_calls.append((node.lineno, node.col_offset))
 
         self.generic_visit(node)
 
